@@ -6,8 +6,7 @@ const app = express();
 app.get('/quote',(req,res)=>{
     const randomIndex = Math.floor(Math.random() * quotes.length);
     res.json({
-        quote: quotes[randomIndex],
-        message: 'Some changes from Mikhail Nekrasov'
+        quote: quotes[randomIndex]
     });
 });
 
