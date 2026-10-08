@@ -1,0 +1,17 @@
+name: Release deployment
+
+on: 
+  release:
+    types: [published]
+
+
+jobs: 
+  Render-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Render deployment
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: curl --fail "$deploy_url"
+        

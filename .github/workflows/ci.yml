@@ -28,15 +28,3 @@ jobs:
 
       - name: Run tests
         run: npm test
-
-  Render-deployment:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: ci
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Render deployment
-        env:
-          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK }}
-        run: curl --fail "$deploy_url"
-        
